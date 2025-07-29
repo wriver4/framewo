@@ -235,4 +235,4 @@ include FRAMEWORK . '/templates/navigation.php';
   </div>
 </div>
 
-<?php include FRAMEWORK . '/templates/footer.php'; ?>
+<?php include FRAMEWORK . '/templates/footer.php';
