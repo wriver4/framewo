@@ -3,6 +3,9 @@
 /**
  * Application Configuration
  */
+define("DOCROOT", dirname($_SERVER['DOCUMENT_ROOT']));
+define("FRAMEWORK", DOCROOT . '/framework');
+define("URL", $protocol . $_SERVER['HTTP_HOST']);
 
 return [
     'name' => 'Framework Application',
@@ -15,11 +18,12 @@ return [
     ],
     'security' => [
         'csrf_protection' => true,
-        'password_min_length' => 6
+        'password_min_length' => 14
     ],
     'paths' => [
-        'templates' => __DIR__ . '/../templates',
-        'assets' => __DIR__ . '/../assets',
-        'uploads' => __DIR__ . '/../uploads'
+        'templates' => FRAMEWORK . '/templates',
+        'views' => FRAMEWORK . '/views',
+        'assets' => URL . '/assets',
+        'uploads' => FRAMEWORK . '/uploads'
     ]
 ];

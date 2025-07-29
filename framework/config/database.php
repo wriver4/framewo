@@ -9,9 +9,9 @@
 
 return [
     'host' => 'localhost',
-    'database' => 'your_database_name',
-    'username' => 'your_username',
-    'password' => 'your_password',
+    'database' => 'framewo_framewo',
+    'username' => 'framewo_framew',
+    'password' => 'Mg6ti4EovrYa311',
     'charset' => 'utf8mb4',
     'options' => [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

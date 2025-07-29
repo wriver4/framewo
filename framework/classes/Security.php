@@ -134,9 +134,9 @@ class Security
                             $errors[$field][] = ucfirst($field) . ' must be a valid email';
                         }
                         break;
-                    case 'min:6':
-                        if (!empty($value) && strlen($value) < 6) {
-                            $errors[$field][] = ucfirst($field) . ' must be at least 6 characters';
+                    case 'min:14':
+                        if (!empty($value) && strlen($value) < 14) {
+                            $errors[$field][] = ucfirst($field) . ' must be at least 14 characters';
                         }
                         break;
                 }

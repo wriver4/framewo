@@ -6,7 +6,7 @@
  */
 
 // Include the framework
-require_once '../../autoload.php';
+require_once dirname($_SERVER['DOCUMENT_ROOT']) . '/framework/autoload.php';
 
 // Initialize security (optional - remove if not using authentication)
 $security = new Security();
@@ -28,33 +28,40 @@ try {
     $list = new ProductsList($results);
     
     // Include header
-    include '../../templates/header.php';
-    include '../../templates/navigation.php';
+    include FRAMEWORK . '/templates/header.php';
+    include FRAMEWORK . '/templates/navigation.php';
     
     // Display search box
     ?>
-    <div class="row mb-3">
-        <div class="col-md-6">
-            <div class="input-group">
-                <span class="input-group-text">
-                    <i class="fas fa-search"></i>
-                </span>
-                <input type="text" class="form-control" id="table-search" placeholder="Search products...">
-            </div>
-        </div>
-        <div class="col-md-6 text-end">
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-outline-secondary" onclick="location.reload()">
-                    <i class="fas fa-sync-alt"></i> Refresh
-                </button>
-                <a href="export" class="btn btn-outline-success">
-                    <i class="fas fa-download"></i> Export
-                </a>
-            </div>
-        </div>
+<div class="row mb-3">
+  <div class="col-md-6">
+    <div class="input-group">
+      <span class="input-group-text">
+        <i class="fas fa-search"></i>
+      </span>
+      <input type="text"
+             class="form-control"
+             id="table-search"
+             placeholder="Search products...">
     </div>
-    
-    <?php
+  </div>
+  <div class="col-md-6 text-end">
+    <div class="btn-group"
+         role="group">
+      <button type="button"
+              class="btn btn-outline-secondary"
+              onclick="location.reload()">
+        <i class="fas fa-sync-alt"></i> Refresh
+      </button>
+      <a href="export"
+         class="btn btn-outline-success">
+        <i class="fas fa-download"></i> Export
+      </a>
+    </div>
+  </div>
+</div>
+
+<?php
     // Display the table
     if (!empty($results)) {
         $list->create_table();
@@ -71,14 +78,14 @@ try {
 } catch (Exception $e) {
     // Handle errors
     $error_message = 'An error occurred while loading products: ' . $e->getMessage();
-    include '../../templates/header.php';
-    include '../../templates/navigation.php';
+    include FRAMEWORK . '/templates/header.php';
+    include FRAMEWORK . '/templates/navigation.php';
     
     echo '<div class="alert alert-danger">
             <i class="fas fa-exclamation-triangle"></i>
             ' . htmlspecialchars($error_message) . '
           </div>';
     
-    include '../../templates/footer.php';
+    include FRAMEWORK . '/templates/footer.php';
 }
 ?>
